@@ -6,7 +6,9 @@
         if ( have_posts() ) :
             while ( have_posts() ) : the_post(); ?>
                 <article>
-                    <h1><?php the_title(); ?></h1>
+                    <img src="" alt="">
+                    <h1>Đỗ Đức Anh</h1>
+                    <h4>Sinh viên TDC</h4>
                     <div class="mb-3 text-muted">
                         <?php the_category(', '); ?> · <?php the_time('j F, Y'); ?>
                     </div>

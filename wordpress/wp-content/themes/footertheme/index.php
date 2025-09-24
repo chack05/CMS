@@ -1,57 +1,30 @@
-<?php get_header(); ?>
+<?php
+get_header(); // Gọi header.php
+?>
 
-<div class="row">
-    <div class="col-lg-8">
-        <div class="row">
+<main id="site-content">
+    <div class="container">
+        <h1>Bài viết mới nhất</h1>
+        <?php
+        if ( have_posts() ) :
+            while ( have_posts() ) : the_post();
+                ?>
+                <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                    <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                    <div class="entry-content">
+                        <?php the_excerpt(); ?>
+                    </div>
+                </article>
+                <hr>
             <?php
-            if ( have_posts() ) :
-                while ( have_posts() ) : the_post();
-                    get_template_part('parts/content', 'card'); // loads parts/content-card.php
-                endwhile;
-            else :
-                echo '<p>Không có bài viết.</p>';
-            endif;
-            ?>
-        </div>
-
-        <!-- pagination -->
-        <nav class="mt-4">
-            <?php
-            the_posts_pagination(array(
-                'prev_text' => '« Trước',
-                'next_text' => 'Sau »',
-            ));
-            ?>
-        </nav>
+            endwhile;
+        else :
+            echo '<p>Không có bài viết nào.</p>';
+        endif;
+        ?>
     </div>
+</main>
 
-    <aside class="col-lg-4">
-        <?php get_search_form(); ?>
-
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title">Danh mục</h5>
-                <?php wp_list_categories(array('title_li' => '', 'show_count' => true)); ?>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Bài mới</h5>
-                <ul class="list-unstyled">
-                    <?php
-                    $recent = new WP_Query(array('posts_per_page' => 5));
-                    if ($recent->have_posts()):
-                        while ($recent->have_posts()): $recent->the_post(); ?>
-                            <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-                        <?php endwhile;
-                        wp_reset_postdata();
-                    endif;
-                    ?>
-                </ul>
-            </div>
-        </div>
-    </aside>
-</div>
-
-<?php get_footer(); ?>
+<?php
+get_footer(); // Gọi footer.php
+?>
