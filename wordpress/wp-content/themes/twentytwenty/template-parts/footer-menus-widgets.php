@@ -112,18 +112,13 @@ if ( $has_footer_menu || $has_social_menu || $has_sidebar_1 || $has_sidebar_2 ) 
                             <div class="footer-widgets column-two grid-item">
                                 <?php dynamic_sidebar( 'sidebar-3' ); ?>
                             </div>
-
                         <?php } ?>
-                        <?php if ( $has_sidebar_4 ) { ?>
-
-                            <div class="footer-widgets column-two grid-item">
-                                <?php dynamic_sidebar( 'sidebar-4' ); ?>
-                            </div>
-
-                        <?php } ?>
-
 					</div><!-- .footer-widgets-wrapper -->
-
+                    <?php if ( $has_sidebar_4 ) { ?>
+                        <div class="footer-icons-wrapper">
+                            <?php dynamic_sidebar( 'sidebar-4' ); ?>
+                        </div>
+                    <?php } ?>
 				</aside><!-- .footer-widgets-outer-wrapper -->
 
 			<?php } ?>

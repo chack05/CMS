@@ -188,7 +188,58 @@ path {
 	word-wrap: normal !important;
 	word-break: normal;
 }
+/*chinh su footer*/
+.footer-widgets nav a{
+	font-weight: normal;
+	transition: transform 1s ease-in-out;
+	transform: translateX(0);
+}
+.footer-widgets nav a::before{
+content: "» ";
 
+
+}
+.footer-widgets nav ul li:hover{
+	transform: translateX(10px);
+
+}
+.footer-widgets nav ul li:hover a{
+	font-weight: bold;
+	text-decoration: none;
+}
+#site-footer span{
+ margin: 0 auto;
+}
+.footer-icon{
+	margin-bottom: 50px;
+}
+.footer-icons-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: -30px;
+
+}
+/* Bỏ background mặc định + đổi màu icon trắng */
+.wp-block-social-links.is-layout-flex .wp-social-link,
+.wp-block-social-links.is-layout-flex .wp-social-link a,
+.wp-block-social-links.is-layout-flex .wp-social-link svg,
+.wp-block-social-links.is-layout-flex .wp-social-link svg path {
+	background-color: transparent !important; /* bỏ nền */
+	color: #fff !important;                  /* icon theo currentColor */
+	fill: currentColor !important;           /* ép fill SVG */
+}
+
+/* Đổi màu khi hover (ví dụ xanh) */
+.wp-block-social-links.is-layout-flex .wp-social-link:hover,
+.wp-block-social-links.is-layout-flex .wp-social-link a:hover,
+.wp-block-social-links.is-layout-flex .wp-social-link svg:hover,
+.wp-block-social-links.is-layout-flex .wp-social-link svg path:hover {
+	color: #1da1f2 !important; /* màu hover */
+	fill: currentColor !important;
+}
+
+/*end*/
 .screen-reader-text:focus {
 	background-color: #f1f1f1;
 	border-radius: 3px;
@@ -6582,3 +6633,4 @@ a.to-the-top > * {
 		width: calc(100% - 8rem);
 	}
 }
+
