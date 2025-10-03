@@ -71,8 +71,8 @@ if ( is_singular() ) {
 			<?php
 		}
 
-		// Default to displaying the post meta.
-		twentytwenty_the_post_meta( get_the_ID(), 'single-top' );
+//		// Default to displaying the post meta.
+//		twentytwenty_the_post_meta( get_the_ID(), 'single-top' );
 		?>
 
 	</div><!-- .entry-header-inner -->
