@@ -848,7 +848,7 @@ function custom_excerpt_length_by_char($text)
 {
     // Chỉ áp dụng giới hạn trên trang danh sách bài viết (không phải trang bài viết đơn)
     if (!is_singular()) {
-        $max_chars = 150; // <- ĐẶT SỐ KÝ TỰ BẠN MUỐN Ở ĐÂY
+        $max_chars = 100; // <- ĐẶT SỐ KÝ TỰ BẠN MUỐN Ở ĐÂY
 
         // Loại bỏ HTML và ký tự đặc biệt
         $text = strip_tags($text);
