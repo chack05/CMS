@@ -249,16 +249,14 @@ content: "» ";
 /* Thiết lập Flexbox để Ngày, Kẻ dọc, và Nội dung nằm ngang */
 .custom-post-item {
 	/* Quan trọng: Bỏ padding/border thừa */
-	padding: 0;
 	border: none;
 	position: static;
 	display: block;
-
 	/* Canh giữa khối bài viết trên trang */
 	margin: 10px 0 0 100px; /* 15px trên dưới, auto trái phải */
-
 	/* Giới hạn chiều rộng để canh giữa hoạt động */
 	max-width: 550px; /* Tăng max-width lên chút để khối trắng nằm giữa */
+	padding-bottom: 10px;
 }
 
 
@@ -272,7 +270,7 @@ content: "» ";
 	/* Khối Màu Trắng - Là khối được nhấp vào */
 	display: flex;
 	background: #ffffff;
-	box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+	box-shadow: rgba(50, 50, 93, 0.25) 2px 2px 9px -1px, rgba(0, 0, 0, 0.3) 0px 1px 8px -1px;
 	align-items: center;
 
 	/* Đảm bảo chiều rộng đồng nhất và phù hợp với max-width của cha */
