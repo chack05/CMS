@@ -424,7 +424,7 @@ content: "» ";
 }
 .title-edit{
 	margin-left: 10px;
-	padding: 20px 10px;
+	padding: 26px 10px;
 	background-color: rgba(131, 131, 131, 0.63);
 }
 
@@ -437,6 +437,7 @@ content: "» ";
 	align-items: center;
 	justify-content: center;
 	/*padding: 0 10px;*/
+	margin-top: 3px;
 
 }
 
@@ -452,6 +453,7 @@ content: "» ";
 	display: flex;
 	flex-direction: column; /* xếp dọc icon và chữ */
 	align-items: center;
+	margin-top: 10px;
 }
 
 .account-toggle svg {
@@ -6244,7 +6246,7 @@ a.to-the-top > * {
 	}
 
 	.header-inner .toggle-wrapper {
-		padding-bottom: 15px;
+		padding-top: 5px;
 	}
 
 
