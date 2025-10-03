@@ -875,3 +875,32 @@ function custom_excerpt_more_dots($more)
 }
 
 add_filter('excerpt_more', 'custom_excerpt_more_dots');
+
+function custom_account_dropdown_script() {
+    ?>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Lấy nút toggle (link Account)
+            const accountToggle = document.querySelector('.account-toggle');
+            // Lấy container cha để bật/tắt class active
+            const accountDropdown = document.querySelector('.account-icon-dropdown');
+
+            if (accountToggle && accountDropdown) {
+                accountToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    accountDropdown.classList.toggle('active'); // Bật/tắt class 'active'
+                });
+
+                // Đóng menu khi người dùng nhấp ra ngoài
+                document.addEventListener('click', function(e) {
+                    // Kiểm tra xem click có ở bên ngoài dropdown và dropdown đang hiển thị không
+                    if (!accountDropdown.contains(e.target) && accountDropdown.classList.contains('active')) {
+                        accountDropdown.classList.remove('active');
+                    }
+                });
+            }
+        });
+    </script>
+    <?php
+}
+add_action( 'wp_footer', 'custom_account_dropdown_script' );
