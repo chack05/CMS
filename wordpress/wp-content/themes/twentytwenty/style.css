@@ -151,9 +151,9 @@ body {
 	word-wrap: break-word;
 }
 
-#site-content {
-	overflow: hidden;
-}
+/*#site-content {*/
+/*	overflow: hidden;*/
+/*}*/
 
 
 /* Clearing ---------------------------------- */
