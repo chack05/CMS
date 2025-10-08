@@ -51,10 +51,19 @@ else :
 
     <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
         <div class="post-inner <?php echo is_page_template('templates/template-full-width.php') ? '' : 'thin'; ?> ">
-            <div class="entry-content">
+            <div class="entry-content strainline">
                 <?php the_content(__('Continue reading', 'twentytwenty')); ?>
             </div>
+            <div class="post-date-circle">
+                <div class="date-content">
+                    <span class="day"><?php echo get_the_date('d'); ?></span>
+                    <span class="divider">/</span>
+                    <span class="month"><?php echo get_the_date('m'); ?></span>
+                    <span class="year">'<?php echo get_the_date('y'); ?></span>
+                </div>
+<!--            <div class="line-divider"></div>-->
         </div>
+
         <div class="section-inner">
             <?php
             wp_link_pages(array(/* ... */));
