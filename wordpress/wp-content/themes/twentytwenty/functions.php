@@ -904,3 +904,9 @@ function custom_account_dropdown_script() {
     <?php
 }
 add_action( 'wp_footer', 'custom_account_dropdown_script' );
+
+//add thu vien icon
+function theme_enqueue_icons() {
+    wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css', array(), '6.5.0' );
+}
+add_action( 'wp_enqueue_scripts', 'theme_enqueue_icons' );
