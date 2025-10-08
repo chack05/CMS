@@ -255,7 +255,7 @@ content: "» ";
 	/* Canh giữa khối bài viết trên trang */
 	margin: 10px 0 0 100px; /* 15px trên dưới, auto trái phải */
 	/* Giới hạn chiều rộng để canh giữa hoạt động */
-	max-width: 550px; /* Tăng max-width lên chút để khối trắng nằm giữa */
+	/*max-width: 550px; !* Tăng max-width lên chút để khối trắng nằm giữa *!*/
 	padding-bottom: 10px;
 }
 
@@ -275,9 +275,9 @@ content: "» ";
 
 	/* Đảm bảo chiều rộng đồng nhất và phù hợp với max-width của cha */
 	width: 100%; /* Chiếm toàn bộ không gian của .custom-post-item */
-	max-width: 500px; /* Vẫn giữ giới hạn chiều rộng nội tại */
+	max-width: 600px; /* Vẫn giữ giới hạn chiều rộng nội tại */
 	height: 150px;
-	padding: 25px;
+	/*padding: 25px;*/
 
 	gap: 30px;
 	cursor: pointer;
@@ -290,9 +290,10 @@ content: "» ";
 /* --- Cột Ngày/Tháng --- */
 .custom-post-date {
 	text-align: center;
+	margin-bottom: auto ;
+	margin-top: 10px;
 	/* Dùng Flexbox/Padding để căn lề thay vì Margin lớn */
-	min-width: 60px;
-	padding-right: 5px;
+	min-width: 70px;
 }
 
 .custom-post-date .day-large {
@@ -361,7 +362,7 @@ content: "» ";
 @media (max-width: 768px) {
 	.custom-post-wrap {
 		/* Cho phép khối co giãn hết cỡ trên di động */
-		max-width: 90%;
+		max-width: 100%;
 		height: auto;
 		padding: 15px; /* Giảm padding */
 
@@ -376,7 +377,6 @@ content: "» ";
 		padding-bottom: 10px;
 		min-width: auto;
 	}
-
 	.custom-post-date .day-large {
 		font-size: 30px; /* Giảm cỡ chữ ngày */
 	}
@@ -570,7 +570,12 @@ content: "» ";
 .no-search-results-form .search-submit:hover {
 	background-color: #2F8C43 !important;
 }
-
+.custom-post-thumbnail{
+	width: 55% !important;
+}
+.home #site-content .custom-post-item .custom-post-wrap .custom-post-date {
+	margin:auto 30px;
+}
 /*----------------------------------------end----------------------------------------*/
 
 
