@@ -573,6 +573,9 @@ content: "» ";
 .custom-post-thumbnail{
 	width: 55% !important;
 }
+.home #site-content .custom-post-item .custom-post-wrap .custom-post-date {
+	margin:auto 30px;
+}
 /*----------------------------------------end----------------------------------------*/
 
 
