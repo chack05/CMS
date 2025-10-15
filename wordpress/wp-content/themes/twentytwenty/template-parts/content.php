@@ -99,12 +99,57 @@ else :
                 </div>
                 <!-- END: Cột 2 Content -->
 
-                <!-- Cột 3 (Phải): Bài viết tiếp theo/Liên quan (Hiện đang trống) -->
+                <!-- Cột 3 (Phải): Bài viết tiếp theo/Liên quan (ĐÃ CẬP NHẬT THEO MẪU ẢNH) -->
                 <div class="post-sidebar-next post-col-3">
-                    <!-- Nội dung cho cột bài viết tiếp theo sẽ được thêm vào đây sau -->
-                    <div class="next-post-placeholder">
-                        <p style="text-align: center; color: #777;">[Next Post / Related Posts Area]</p>
-                    </div>
+                    <?php
+                    $current_post_id = get_the_ID();
+                    // Lấy 3 bài viết gần đây nhất, loại trừ bài viết hiện tại
+                    $recent_posts = get_posts(array(
+                        'numberposts'  => 3,
+                        'post_status'  => 'publish',
+//                        'post__not_in' => array($current_post_id)
+                    ));
+
+                    if ( $recent_posts ) :
+                        ?>
+                        <!-- Khối tin tức mới nhất (Áp dụng CSS để tạo màu nền xanh teal và bố cục) -->
+                        <div class="latest-news-block">
+                            <!-- Bạn có thể thêm tiêu đề ở đây nếu cần, ví dụ: <h3 class="block-title">Tin tức mới nhất</h3> -->
+
+                            <?php foreach ( $recent_posts as $post ) : setup_postdata( $post ); ?>
+                                <a href="<?php the_permalink(); ?>" class="news-item-link">
+                                    <div class="news-item-row">
+                                        <!-- Date Group: Ngày / Tháng - Năm -->
+                                        <div class="date-group">
+                                            <div class="date-info">
+                                                <div class="date-d-m">
+                                                    <span class="date-day"><?php echo get_the_date('d'); ?></span>
+                                                    <!-- Dấu gạch ngang dọc được mô phỏng bằng border-bottom của date-d-m -->
+                                                    <span class="date-month"><?php echo get_the_date('m'); ?></span>
+                                                </div>
+                                                <span class="date-separator"></span> <!-- Dấu gạch ngang ngang (—) -->
+                                                <span class="date-year-display"><?php echo get_the_date('y'); ?></span>
+                                            </div>
+                                        </div>
+                                        <!-- POST TITLE (Lấy lại tiêu đề bài viết) -->
+                                        <div class="post-title category-heading">
+                                            <?php the_title(); ?>
+                                        </div>
+                                    </div>
+                                </a>
+                            <?php endforeach; wp_reset_postdata(); ?>
+
+                            <!-- Nút Xem Tất Cả Tin Tức -->
+                            <?php
+                            // Lấy URL của trang tin tức/blog chính (Page for Posts)
+                            $news_page_id = get_option('page_for_posts');
+                            $news_archive_url = $news_page_id ? get_permalink($news_page_id) : get_home_url();
+                            ?>
+                            <a href="<?php echo esc_url($news_archive_url); ?>" class="view-all-news-button">
+                                XEM TẤT CẢ TIN TỨC
+                            </a>
+                        </div>
+                    <?php endif; ?>
                 </div>
                 <!-- END: Cột 3 Next Post -->
 
@@ -118,11 +163,11 @@ else :
                 <div class="make-post-wrapper section-inner">
                     <div class="make-post-header">Make a Post</div>
                     <div class="make-post-body">
-        <textarea
-                class="make-post-input"
-                placeholder="What are you thinking..."
-                rows="3"
-        ></textarea>
+    <textarea
+            class="make-post-input"
+            placeholder="What are you thinking..."
+            rows="3"
+    ></textarea>
                         <button class="make-post-share">share</button>
                     </div>
                 </div>
@@ -153,6 +198,7 @@ else :
             }
             ?>
     </article>
+
 
 
 <?php
