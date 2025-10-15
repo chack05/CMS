@@ -602,9 +602,6 @@ path {
 
 /*----------------------------------------end----------------------------------------*/
 /*----------------------------------------detail----------------------------------------*/
-.strainline {
-    margin-top: -30px;
-}
 
 .strainline .wp-block-heading {
     position: relative;
@@ -699,7 +696,6 @@ path {
 /* Set the parent container to relative positioning */
 .entry-content {
     position: relative;
-    padding-top: 50px; /* Ensure content doesn't get covered by the circle */
 }
 
 /* end date content  */
@@ -900,6 +896,141 @@ path {
 }
 
 /* end comment  */
+/*----------------------------------------end----------------------------------------*/
+/*----------------------------------------categories----------------------------------------*/
+/* === BỐ CỤC BA CỘT (Cho màn hình lớn) === */
+
+.post-layout-wrapper-3-col {
+    display: flex;
+    gap: 20px; /* Khoảng cách giữa các cột */
+    align-items: flex-start; /* Căn chỉnh các cột lên đỉnh */
+}
+
+/* Định nghĩa chiều rộng cho 3 cột: Ví dụ 20% | 60% | 20% hoặc cố định */
+
+/* Cột 1: Categories (Cố định, nằm bên trái) */
+.post-col-1 {
+    flex-basis: 200px; /* Chiều rộng cố định cho Categories */
+    flex-shrink: 0;
+}
+
+/* Cột 2: Nội dung chính (Chiếm không gian lớn nhất, tự động co lại) */
+.post-col-2 {
+    flex-grow: 1; /* Cho phép cột này chiếm hết không gian còn lại */
+    min-width: 0; /* Cho phép nội dung bên trong co lại */
+}
+
+/* Cột 3: Bài tiếp theo (Cố định, nằm bên phải) */
+.post-col-3 {
+    flex-basis: 350px; /* Đã tăng chiều rộng cố định từ 250px lên 300px */
+    flex-shrink: 0;
+}
+
+/* Nếu bạn muốn cột Categories dính cố định khi cuộn */
+.post-col-1 .all-categories-list-container {
+    /* Đảm bảo khối này có style cho sticky (nếu cần) */
+    position: sticky;
+    top: 20px;
+    z-index: 10;
+}
+
+/* CSS cho Placeholder */
+.next-post-placeholder {
+    /* Đảm bảo placeholder có chiều cao để hiển thị */
+    padding: 20px;
+    border: 1px dashed #ccc;
+    border-radius: 4px;
+}
+
+
+/* === RESPONSIVE: CHUYỂN VỀ 1 CỘT TRÊN MOBILE VÀ TABLET === */
+@media (max-width: 1024px) {
+    .post-layout-wrapper-3-col {
+        flex-direction: column; /* Chuyển sang xếp chồng */
+    }
+
+    /* Đặt thứ tự cho Mobile: Categories -> Content -> Next Post */
+    .post-col-1 { order: 1; width: 100%; flex-basis: auto; }
+    .post-col-2 { order: 2; width: 100%; flex-basis: auto; }
+    .post-col-3 { order: 3; width: 100%; flex-basis: auto; }
+
+    /* Vô hiệu hóa tính năng cố định trên màn hình nhỏ */
+    .post-col-1 .all-categories-list-container {
+        position: static;
+        top: 0;
+    }
+}
+
+/* 1. CONTAINER CHUNG - Khối bao quanh */
+.all-categories-list-container {
+    /* Đảm bảo khối này không bị trôi nổi và chiếm đủ không gian */
+    width: fit-content;
+    clear: both;
+    margin: 20px 0; /* Khoảng cách trên dưới */
+    padding: 10px; /* Loại bỏ padding để tiêu đề chiếm hết chiều rộng */
+
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden; /* Cần thiết để tiêu đề có nền họa tiết */
+}
+
+/* 2. TIÊU ĐỀ "Categories" */
+.categories-list-header {
+    font-size: 2.5rem; /* Kích thước chữ lớn hơn */
+    font-weight: 700; /* Chữ đậm */
+    color: #333333;
+    padding: 15px 20px; /* Padding bên trong */
+    margin: 0; /* Loại bỏ margin mặc định của h2 */
+    border-bottom: 1px solid #e0e0e0; /* Đường kẻ dưới tiêu đề */
+}
+
+/* 3. DANH SÁCH UL */
+.categories-list-ul {
+    list-style: none; /* Loại bỏ bullet mặc định */
+    padding: 0 20px 10px 20px; /* Padding: trên 0, hai bên 20px, dưới 10px */
+    margin: 0; /* Loại bỏ margin mặc định */
+}
+
+/* 4. CÁC MỤC DANH MỤC LI */
+.categories-list-ul li {
+    padding: 10px 0; /* Padding trên dưới cho mỗi mục */
+    margin: 0;
+    border-bottom: 1px solid #eeeeee; /* Đường kẻ ngang phân cách */
+    position: relative;
+}
+
+/* Loại bỏ đường kẻ ngang cho mục cuối cùng */
+.categories-list-ul li:last-child {
+    border-bottom: none;
+}
+
+/* 5. TẠO DẤU CHẤM VÀNG (Custom Bullet Point) */
+.categories-list-ul li a {
+    /* Đảm bảo liên kết nằm đúng vị trí */
+    display: block;
+    padding-left: 15px; /* Tạo không gian cho dấu chấm */
+    text-decoration: none;
+    color: #007bff; /* Màu liên kết */
+    transition: color 0.2s;
+}
+
+.categories-list-ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    /* Dấu chấm */
+    width: 6px;
+    height: 6px;
+    background-color: #ffc107; /* Màu vàng */
+    border-radius: 50%;
+}
+
+.categories-list-ul li a:hover {
+    color: #0056b3; /* Đổi màu khi di chuột */
+}
+
 /*----------------------------------------end----------------------------------------*/
 
 
@@ -3382,9 +3513,9 @@ h2.entry-title {
     width: calc(100% - 5rem);
 }
 
-.post-inner {
-    padding-top: 5rem;
-}
+/*.post-inner {*/
+/*    padding-top: 5rem;*/
+/*}*/
 
 .reduced-spacing.missing-post-thumbnail .post-inner {
     padding-top: 0;
@@ -4356,7 +4487,7 @@ figure.wp-block-table.is-style-stripes {
 }
 
 .entry-content > *:first-child {
-    margin-top: 30px;
+    margin-top: -50px;
 }
 
 .entry-content > *:last-child {
@@ -5948,9 +6079,9 @@ a.to-the-top > * {
         margin-top: 6rem;
     }
 
-    .post-inner {
-        padding-top: 8rem;
-    }
+    /*.post-inner {*/
+    /*    padding-top: 8rem;*/
+    /*}*/
 
     /* POST FOOTER */
     .post-meta-wrapper.post-meta-single-bottom {
