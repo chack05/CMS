@@ -1,61 +1,51 @@
 <?php
 /**
- * Displays the next and previous post navigation in single posts.
- *
- * @package WordPress
- * @subpackage Twenty_Twenty
- * @since Twenty Twenty 1.0
+ * Custom Query to display the latest posts in the requested format (Day/Month Year | Full Title).
  */
 
-$next_post = get_next_post();
-$prev_post = get_previous_post();
+$args = array(
+    'posts_per_page' => 2, // Số lượng bài viết muốn hiển thị (có thể thay đổi)
+    'post_status'    => 'publish',
+    'orderby'        => 'date',
+    'order'          => 'DESC',
+);
 
-if ( $next_post || $prev_post ) {
+$latest_posts = new WP_Query( $args );
 
-	$pagination_classes = '';
+if ( $latest_posts->have_posts() ) {
+    ?>
+    <div class="custom-post-list-wrapper list-final-style">
+        <?php
+        while ( $latest_posts->have_posts() ) {
+            $latest_posts->the_post();
 
-	if ( ! $next_post ) {
-		$pagination_classes = ' only-one only-prev';
-	} elseif ( ! $prev_post ) {
-		$pagination_classes = ' only-one only-next';
-	}
+            // Lấy ngày, tháng và năm
+            $day   = get_the_date( 'd' ); // Ví dụ: 03
+            $month = get_the_date( 'm' ); // Ví dụ: 08
+            $year  = get_the_date( 'y' ); // Ví dụ: 18 (hoặc Y cho 2018)
 
-	?>
+            $post_title = get_the_title(); // Lấy tiêu đề bài viết đầy đủ
+            ?>
 
-	<nav class="pagination-single section-inner<?php echo esc_attr( $pagination_classes ); ?>" aria-label="<?php esc_attr_e( 'Post', 'twentytwenty' ); ?>">
+            <div class="custom-post-item">
+                <a href="<?php the_permalink(); ?>" class="post-link">
 
-		<hr class="styled-separator is-style-wide" aria-hidden="true" />
-
-		<div class="pagination-single-inner">
-
-			<?php
-			if ( $prev_post ) {
-				?>
-
-				<a class="previous-post" href="<?php echo esc_url( get_permalink( $prev_post->ID ) ); ?>">
-					<span class="arrow" aria-hidden="true">&larr;</span>
-					<span class="title"><span class="title-inner"><?php echo wp_kses_post( get_the_title( $prev_post->ID ) ); ?></span></span>
-				</a>
-
-				<?php
-			}
-
-			if ( $next_post ) {
-				?>
-
-				<a class="next-post" href="<?php echo esc_url( get_permalink( $next_post->ID ) ); ?>">
-					<span class="arrow" aria-hidden="true">&rarr;</span>
-						<span class="title"><span class="title-inner"><?php echo wp_kses_post( get_the_title( $next_post->ID ) ); ?></span></span>
-				</a>
-				<?php
-			}
-			?>
-
-		</div><!-- .pagination-single-inner -->
-
-		<hr class="styled-separator is-style-wide" aria-hidden="true" />
-
-	</nav><!-- .pagination-single -->
-
-	<?php
+                    <div class="post-date-box date-box-final">
+                        <div class="date-fraction">
+                            <span class="post-day"><?php echo esc_html( $day ); ?></span>
+                            <span class="date-divider"></span>
+                            <span class="post-month"><?php echo esc_html( $month ); ?></span>
+                        </div>
+                        <span class="post-year"><?php echo esc_html( $year ); ?></span>
+                    </div>
+                    <div class="post-title-box">
+                        <h4 class="post-title"><?php echo wp_kses_post( $post_title ); ?></h4>
+                    </div>
+                </a>
+            </div> <?php
+        }
+        ?>
+    </div> <?php
+    wp_reset_postdata();
 }
+?>
