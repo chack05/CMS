@@ -577,6 +577,114 @@ content: "» ";
 	margin:auto 30px;
 }
 /*----------------------------------------end----------------------------------------*/
+/*----------------------------------------detail----------------------------------------*/
+.strainline{
+	margin-top: -30px;
+}
+.strainline .wp-block-heading {
+	position: relative;
+	padding-bottom: 90px;
+	border-bottom: black 1px solid;
+	margin-bottom: 50px;
+
+}
+
+/* Phần này tạo ra cái "hình vuông" đè lên line */
+.strainline .wp-block-heading::before {
+	content: "";
+	position: absolute;
+	left: 10%; /* Đặt ở giữa */
+	bottom: -13px; /* Đặt ở ngay trên line (hoặc -2px nếu bạn muốn nó đè lên hẳn) */
+	transform: translateX(-50%) rotate(-45deg); /* Căn giữa hoàn toàn */
+	width: 25px; /* Chiều rộng hình vuông */
+	height: 25px; /* Chiều cao hình vuông */
+	background: #ffffff; /* Màu nền của hình vuông, giả sử nền trang là trắng */
+	border-bottom: 1px solid black; /* border-bottom */
+	border-left: 1px solid black; /* border-left */
+	box-sizing: border-box; /* Đảm bảo padding và border không làm tăng kích thước */
+}
+/* ----------------------------------------------------------------
+ * CSS cho Date Badge Màu Vàng
+ * ---------------------------------------------------------------- */
+
+/* date content  */
+/* --- 1. Positioning and Circle Shape --- */
+.date-circle-container {
+	/* Critical: Set size, shape, and position */
+	position: absolute;
+	width: 80px !important; /* Increased size slightly to fit the text better */
+	height: 80px;
+	border-radius: 50%;
+	background-color: #fddb3a; /* Yellow/Gold */
+	color: #444; /* Darker text for contrast */
+	top: 70px; /* Example position, adjust as needed */
+right: 0;
+	/* Use Flexbox to manage the D/M group and the Year */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	/* Optional: Subtle box-shadow for depth */
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 2. Day/Month Group Styling (24/06) --- */
+.date-d-m-group {
+	/* Stack the day and month vertically */
+	display: flex;
+	flex-direction: column;
+	align-items: center; /* Center the numbers */
+
+	/* Position the entire group slightly to the left (if needed) */
+	transform: translateX(-5px);
+
+	/* General text style */
+	font-size: 18px; /* Adjust font size */
+	font-weight: 500;
+	line-height: 1.1;
+}
+
+/* Add the horizontal line below the Day (24) */
+.date-d-m-group .date-day {
+	padding-bottom: 3px; /* Space above the line */
+	border-bottom: 2px solid #444; /* The separating line */
+	width: 110%; /* Make the line shorter than the numbers if desired */
+	text-align: center;
+}
+
+.date-d-m-group .date-month {
+	padding-top: 3px; /* Space below the line */
+}
+
+
+/* --- 3. Year Styling (18) --- */
+.date-circle-container .date-year {
+	/* Position the year number to the right */
+	position: absolute;
+	top: 50%; /* Center vertically */
+	right: 15px; /* Adjust right distance */
+	transform: translateY(-50%); /* Fine-tune vertical centering */
+
+	font-size: 16px; /* Slightly smaller than D/M */
+	font-weight: normal;
+}
+
+/* --- 4. Contextual Positioning (REQUIRED!) --- */
+/* Set the parent container to relative positioning */
+.entry-content {
+	position: relative;
+	padding-top: 50px; /* Ensure content doesn't get covered by the circle */
+}
+/* end date content  */
+.post-inner .post-content{
+	width: fit-content;
+	height: fit-content;
+	margin: 0 auto;
+
+}
+/*----------------------------------------end----------------------------------------*/
+
+
 
 
 
@@ -4029,7 +4137,7 @@ figure.wp-block-table.is-style-stripes {
 }
 
 .entry-content > *:first-child {
-	margin-top: 0;
+	margin-top: 30px;
 }
 
 .entry-content > *:last-child {
@@ -4124,7 +4232,7 @@ figure.wp-block-table.is-style-stripes {
 /* Alignment Classes ------------------------- */
 
 .entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
-	max-width: 58rem;
+	max-width: 100rem;
 	width: calc(100% - 4rem);
 }
 
@@ -5896,8 +6004,10 @@ a.to-the-top > * {
 
 	/* Entry Content ------------------------- */
 
-	.entry-content {
-		font-size: 2.1rem;
+	.entry-content p{
+		font-style: italic;
+		font-family: Didot;
+
 	}
 
 	.entry-content p,
