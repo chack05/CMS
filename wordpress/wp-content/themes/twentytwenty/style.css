@@ -922,7 +922,7 @@ path {
 
 /* Cột 3: Bài tiếp theo (Cố định, nằm bên phải) */
 .post-col-3 {
-    flex-basis: 350px; /* Đã tăng chiều rộng cố định từ 250px lên 300px */
+    flex-basis: 400px; /* Đã tăng chiều rộng cố định từ 250px lên 300px */
     flex-shrink: 0;
 }
 
@@ -1031,6 +1031,115 @@ path {
     color: #0056b3; /* Đổi màu khi di chuột */
 }
 
+/*----------------------------------------end----------------------------------------*/
+/*----------------------------------------recent-post----------------------------------------*/
+/* CSS cho cột thứ 3: Latest News Block (Mẫu xanh ngọc) */
+.post-layout-wrapper-3-col {
+    display: flex;
+}
+
+.post-sidebar-next {
+    padding: 20px;
+}
+
+.latest-news-block {
+    background-color: #4dc4b9; /* Màu xanh ngọc (Teal) */
+    padding: 30px;
+    border-radius: 8px; /* Bo góc nhẹ */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #fff; /* Chữ trắng */
+}
+
+/* Kiểu dáng cho từng bài viết */
+.news-item-link {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding: 15px 0;
+    transition: background-color 0.3s;
+}
+
+.news-item-link:last-of-type {
+    padding-bottom: 25px;
+}
+
+.news-item-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Bố cục của mỗi dòng bài viết (Ngày/Tháng | Tiêu đề) */
+.news-item-row {
+    display: flex;
+    align-items: flex-start; /* Căn chỉnh lên trên */
+}
+
+/* Nhóm ngày tháng */
+.date-group {
+    flex-shrink: 0;
+    width: 70px;
+    text-align: left;
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+/* Khối Ngày/Tháng/Năm (toàn bộ) */
+.date-info {
+    display: flex;
+    /* Giữ align-items: flex-end để Ngày/Tháng và Năm căn chỉnh từ dưới lên */
+    /* THAY ĐỔI: Chuyển về center hoặc flex-start để dễ căn chỉnh theo tiêu đề */
+    align-items: flex-start;
+    line-height: 1;
+}
+
+/* Ngày và Tháng (khối 03 / 10) */
+/* [BỔ SUNG THEO YÊU CẦU NGƯỜI DÙNG] */
+.date-day {
+    /* Cần thêm độ dày và kiểu (solid) cho border-bottom để nó hiển thị */
+    border-bottom: 2px solid #ffffff;
+}
+/* Ngày và Tháng (03 và 10) */
+.date-day, .date-month {
+    font-size: 18px; /* Tăng cỡ chữ để nổi bật hơn */
+    display: block;
+    line-height: 1;
+    text-align: center;
+}
+
+/* Năm (25) */
+.date-year-display {
+    margin-left: 5px;
+    font-size: 18px;
+    transform: translateY(10px); /* Tinh chỉnh giá trị này */
+    align-self: flex-start; /* THAY ĐỔI: Căn từ trên xuống để dễ căn với đường kẻ ngang */
+}
+
+
+/* Tiêu đề bài viết */
+.post-title {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.4;
+    flex-grow: 1;
+}
+
+/* Nút Xem Tất Cả Tin Tức */
+.view-all-news-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: #38a59c; /* Màu xanh đậm hơn cho nút */
+    color: #fff;
+    padding: 15px 10px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.view-all-news-button:hover {
+    background-color: #2e8b83;
+}
 /*----------------------------------------end----------------------------------------*/
 
 
