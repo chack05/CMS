@@ -1,51 +1,84 @@
 <?php
 /**
- * Custom Query to display the latest posts in the requested format (Day/Month Year | Full Title).
+ * Displays the next and previous post navigation in single posts.
+ *
+ * @package WordPress
+ * @subpackage Twenty_Twenty
+ * @since Twenty Twenty 1.0
  */
 
-$args = array(
-    'posts_per_page' => 2, // Số lượng bài viết muốn hiển thị (có thể thay đổi)
-    'post_status'    => 'publish',
-    'orderby'        => 'date',
-    'order'          => 'DESC',
-);
+$next_post = get_next_post();
+$prev_post = get_previous_post();
 
-$latest_posts = new WP_Query( $args );
+if ( $next_post || $prev_post ) {
 
-if ( $latest_posts->have_posts() ) {
+    $pagination_classes = '';
+
+    if ( ! $next_post ) {
+        $pagination_classes = ' only-one only-prev';
+    } elseif ( ! $prev_post ) {
+        $pagination_classes = ' only-one only-next';
+    }
+
     ?>
-    <div class="custom-post-list-wrapper list-final-style">
-        <?php
-        while ( $latest_posts->have_posts() ) {
-            $latest_posts->the_post();
 
-            // Lấy ngày, tháng và năm
-            $day   = get_the_date( 'd' ); // Ví dụ: 03
-            $month = get_the_date( 'm' ); // Ví dụ: 08
-            $year  = get_the_date( 'y' ); // Ví dụ: 18 (hoặc Y cho 2018)
+    <nav class="pagination-single section-inner<?php echo esc_attr( $pagination_classes ); ?>" aria-label="<?php esc_attr_e( 'Post', 'twentytwenty' ); ?>">
 
-            $post_title = get_the_title(); // Lấy tiêu đề bài viết đầy đủ
+        <div class="pagination-single-inner">
+
+            <?php
+            // Hiển thị Bài Viết TRƯỚC (Previous Post)
+            if ( $prev_post ) {
+                ?>
+
+                <a class="previous-post navigation-item" href="<?php echo esc_url( get_permalink( $prev_post->ID ) ); ?>">
+                    <!-- Khối Ngày Tháng -->
+                    <div class="post-date-nav">
+                        <div class="nav-day-group">
+                            <div class="nav-day"><?php echo get_the_time('d', $prev_post->ID); ?></div>
+                            <div class="nav-month"><?php echo get_the_time('m', $prev_post->ID); ?></div>
+                        </div>
+                        <div class="nav-year"><?php echo get_the_time('y', $prev_post->ID); ?></div>
+                    </div>
+                    <!-- Tiêu đề -->
+                    <span class="title-nav">
+                        <span class="title-inner"><?php echo wp_kses_post( get_the_title( $prev_post->ID ) ); ?></span>
+                    </span>
+                    <!-- Mũi tên (Giữ lại nhưng sẽ ẩn bằng CSS) -->
+                    <span class="arrow-nav" aria-hidden="true">&larr;</span>
+                </a>
+
+                <?php
+            }
+
+            // Hiển thị Bài Viết SAU (Next Post)
+            if ( $next_post ) {
+                ?>
+
+                <a class="next-post navigation-item" href="<?php echo esc_url( get_permalink( $next_post->ID ) ); ?>">
+                    <!-- Mũi tên (Giữ lại nhưng sẽ ẩn bằng CSS) -->
+                    <span class="arrow-nav" aria-hidden="true">&rarr;</span>
+                    <!-- Khối Ngày Tháng -->
+                    <div class="post-date-nav">
+                        <div class="nav-day-group">
+                            <div class="nav-day"><?php echo get_the_time('d', $next_post->ID); ?></div>
+                            <div class="nav-month"><?php echo get_the_time('m', $next_post->ID); ?></div>
+                        </div>
+                        <div class="nav-year"><?php echo get_the_time('y', $next_post->ID); ?></div>
+                    </div>
+                    <!-- Tiêu đề -->
+                    <span class="title-nav">
+<span class="title-inner"><?php echo wp_kses_post( get_the_title( $next_post->ID ) ); ?></span>
+                    </span>
+                </a>
+                <?php
+            }
             ?>
 
-            <div class="custom-post-item">
-                <a href="<?php the_permalink(); ?>" class="post-link">
+        </div><!-- .pagination-single-inner -->
 
-                    <div class="post-date-box date-box-final">
-                        <div class="date-fraction">
-                            <span class="post-day"><?php echo esc_html( $day ); ?></span>
-                            <span class="date-divider"></span>
-                            <span class="post-month"><?php echo esc_html( $month ); ?></span>
-                        </div>
-                        <span class="post-year"><?php echo esc_html( $year ); ?></span>
-                    </div>
-                    <div class="post-title-box">
-                        <h4 class="post-title"><?php echo wp_kses_post( $post_title ); ?></h4>
-                    </div>
-                </a>
-            </div> <?php
-        }
-        ?>
-    </div> <?php
-    wp_reset_postdata();
+    </nav><!-- .pagination-single -->
+
+    <?php
 }
 ?>
