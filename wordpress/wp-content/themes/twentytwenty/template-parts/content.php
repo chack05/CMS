@@ -64,10 +64,25 @@ else :
             </div>
             </div>
             <div class="post-date-circle">
-
-<!--            <div class="line-divider"></div>-->
         </div>
+            <?php
+            function display_make_a_post_form() {
 
+                ?>
+                <div class="make-post-wrapper section-inner">
+                    <div class="make-post-header">Make a Post</div>
+                    <div class="make-post-body">
+            <textarea
+                    class="make-post-input"
+                    placeholder="What are you thinking..."
+                    rows="3"
+            ></textarea>
+                        <button class="make-post-share">share</button>
+                    </div>
+                </div>
+                <?php
+            }
+            ?>
         <div class="section-inner">
             <?php
             wp_link_pages(array(/* ... */));
@@ -82,9 +97,13 @@ else :
         if (is_single()) {
             get_template_part('template-parts/navigation');
         }
-        if ((is_single() || is_page()) && (comments_open() || get_comments_number()) && !post_password_required()) {
-            ?>
-            <div class="comments-wrapper section-inner"><?php comments_template(); ?></div><?php
+        if ( is_user_logged_in() ) {
+            display_make_a_post_form();
+        }else{
+            if ((is_single() || is_page()) && (comments_open() || get_comments_number()) && !post_password_required()) {
+                ?>
+                <div class="comments-wrapper section-inner"><?php comments_template(); ?></div><?php
+            }
         }
         ?>
     </article>
