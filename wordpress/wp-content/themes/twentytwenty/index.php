@@ -110,7 +110,40 @@ get_header();
                         </div>
                     </div>
 
-                <?php }} ?>
+                <?php }} else {?>
+                <div class="custom-col col-left">
+                    <h2 class="section-title">Trang mới nhất</h2>
+
+                    <?php
+                    $recent_posts = wp_get_recent_posts(array(
+                        'numberposts' => 3, // 👉 chỉ lấy 3 bài viết mới nhất
+                        'post_status' => 'publish'
+                    ));
+                    foreach ($recent_posts as $post) :
+                        $categories = get_the_category($post['ID']);
+                        $category_name = !empty($categories) ? $categories[0]->name : 'Chưa phân loại';
+                        ?>
+                        <div class="latest-post-item">
+                            <h3 class="latest-post-heading">
+                                <a href="<?php echo get_permalink($post['ID']); ?>">
+                                    <?php echo wp_trim_words($post['post_title'],8,'...'); ?>
+                                </a>
+                            </h3>
+                            <a href="<?php echo get_permalink($post['ID']); ?>" class="latest-post-thumbnail">
+                                <?php echo get_the_post_thumbnail($post['ID'], 'large'); ?>
+                            </a>
+                            <p class="latest-post-excerpt">
+                                <?php echo wp_trim_words($post['post_content'], 25, '...'); ?>
+                            </p>
+                            <div class="latest-post-category">
+                                Ngành: <?php echo esc_html($category_name); ?>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+
+
+            <?php }?>
         </div>
 
         <!-- Cột giữa -->
@@ -177,7 +210,10 @@ get_header();
     </div>
 
 </main>
+<?php
+get_template_part('template-parts/template-latest-news');
 
+?>
 <?php
 get_template_part( 'template-parts/footer-menus-widgets' );
 get_footer();

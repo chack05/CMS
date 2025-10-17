@@ -1248,7 +1248,7 @@ path {
 }
 
 .custom-post-thumbnail img {
-    width: 100%;
+    /*width: 100%;*/
     max-width: 200px; /* 👈 Giới hạn chiều rộng tối đa của ảnh */
     height: auto;
     /*border-radius: 10px;*/
@@ -1399,6 +1399,183 @@ path {
         font-size: 1.8rem;
     }
 }
+/*----------------------------------------end----------------------------------------*/
+/*----------------------------------------(13) Pages----------------------------------------*/
+/* cột trái seacrh  */
+.custom-col.col-left {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.section-title {
+    color: #3b7adf;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.latest-post-item {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    max-width: 100%;
+}
+
+.latest-post-title {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.latest-post-thumbnail img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.latest-post-heading a {
+    color: #000;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-decoration: none;
+}
+
+.latest-post-heading a:hover {
+    color: #b70000;
+}
+
+.latest-post-excerpt {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 8px 0;
+}
+
+.latest-post-category {
+    font-size: 14px;
+    color: #888;
+}
+.latest-post-heading{
+    position: relative;
+
+}
+.latest-post-heading::before{
+    content: "";
+    position: absolute;
+    border-bottom: 2px solid #000;
+    width: 20%;
+    bottom: 0;
+    color: #a5a9b4;
+}
+/* end cọt trái search  */
+/*----------------------------------------end----------------------------------------*/
+/*----------------------------------------lastnews module 15----------------------------------------*/
+/* 15 last post  */
+/* --- Latest News Timeline --- */
+.latest-news-section {
+    max-width: 700px;
+    margin: 60px auto;
+    font-family: "Segoe UI", sans-serif;
+}
+
+.latest-news-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #222;
+}
+
+/* Timeline container */
+.timeline {
+    position: relative;
+
+}
+
+/* Mỗi item trong timeline */
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+.timeline-icon::before {
+    content: "";
+    margin-top: 12px;
+    position: absolute;
+    left: 4px;
+    top: 0;
+    height: 120px;
+    bottom: 0;
+    width: 2.5px;
+    background-color: #d4d9df;
+}
+
+
+/* Icon tròn ở line */
+.timeline-icon {
+    position: absolute;
+    left: -10px;
+    top: 5px;
+    width: 14px;
+    height: 14px;
+    border: 2px solid #24c1e8;
+    border-radius: 50%;
+    background: #fff;
+}
+
+/* Nội dung */
+.timeline-content {
+    padding-left: 10px;
+}
+
+/* Header chứa title và date */
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+}
+
+/* Tiêu đề bài viết */
+.timeline-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1976d2;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.timeline-title:hover {
+    text-decoration: underline;
+}
+
+/* Ngày tháng */
+.timeline-date {
+    font-size: 13px;
+    color: #2196f3;
+    white-space: nowrap;
+}
+
+/* Mô tả */
+.timeline-excerpt {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Hiệu ứng nhỏ khi hover vào item */
+.timeline-item:hover .timeline-icon {
+    background: #2196f3;
+    box-shadow: 0 0 0 3px rgba(33,150,243,0.2);
+}
+
+/* end 15 last port  */
 /*----------------------------------------end----------------------------------------*/
 
 
@@ -6143,7 +6320,7 @@ a.to-the-top > * {
     .heading-size-2,
     h3,
     .heading-size-3 {
-        margin: 6rem auto 3rem;
+        /*margin: 6rem auto 3rem;*/
     }
 
     h4,
