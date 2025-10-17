@@ -2380,7 +2380,7 @@ th {
 /* Sections ---------------------------------- */
 
 section {
-    padding: 5rem 0;
+    /*padding: 5rem 0;*/
     width: 100%;
 }
 
@@ -6390,9 +6390,9 @@ a.to-the-top > * {
 
     /* Helper Classes ------------------------- */
     /* SECTIONS */
-    section {
-        padding: 8rem 0;
-    }
+    /*section {*/
+    /*    padding: 8rem 0;*/
+    /*}*/
 
     .section-inner {
         width: calc(100% - 8rem);
