@@ -544,7 +544,7 @@ path {
     display: flex;
     align-items: center;
     max-width: 650px;
-    margin: 40px auto;
+    margin: 0 auto;
     padding: 10px;
     border: 1px solid #e0e0e0;
     border-radius: 5px;
@@ -1210,6 +1210,7 @@ path {
 /* Bố cục 3 cột */
 .custom-layout {
     display: grid;
+    justify-items: center;
     grid-template-columns: 1fr 2fr 1fr; /* trái - giữa - phải */
     gap: 20px;
     align-items: start;
@@ -1237,8 +1238,8 @@ path {
 
 .custom-post-wrap {
     background: #f9f9f9;
-    border-radius: 10px;
-    padding: 15px;
+    /*border-radius: 10px;*/
+    /*padding: 15px;*/
     transition: box-shadow 0.3s ease;
 }
 
@@ -1250,7 +1251,7 @@ path {
     width: 100%;
     max-width: 200px; /* 👈 Giới hạn chiều rộng tối đa của ảnh */
     height: auto;
-    border-radius: 10px;
+    /*border-radius: 10px;*/
     display: block;
     margin: 0 auto;
 }
@@ -3677,7 +3678,7 @@ body:not(.singular) main > article:first-of-type {
 /* Search Results ---------------------------- */
 
 .no-search-results-form {
-    padding-top: 5rem;
+    /*padding-top: 5rem;*/
 }
 
 
@@ -6397,7 +6398,7 @@ a.to-the-top > * {
 
     /* SEARCH RESULTS */
     .no-search-results-form {
-        padding-top: 8rem;
+        /*padding-top: 8rem;*/
     }
 
     /* Post: Single -------------------------- */

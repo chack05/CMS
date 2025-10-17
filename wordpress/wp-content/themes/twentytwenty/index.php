@@ -56,6 +56,15 @@ get_header();
                 <?php endif; ?>
             </div>
         </header>
+        <div class="no-search-results-form section-inner thin">
+            <?php
+            get_search_form(
+                array(
+                    'aria_label' => __( 'search again', 'twentytwenty' ),
+                )
+            );
+            ?>
+        </div>
     <?php endif; ?>
 
 
@@ -100,6 +109,7 @@ get_header();
                             ?>
                         </div>
                     </div>
+
                 <?php }} ?>
         </div>
 
@@ -117,16 +127,9 @@ get_header();
                 get_template_part( 'template-parts/pagination' );
             elseif ( is_search() ) :
                 ?>
-                <div class="no-search-results-form section-inner thin">
-                    <?php
-                    get_search_form(
-                        array(
-                            'aria_label' => __( 'search again', 'twentytwenty' ),
-                        )
-                    );
-                    ?>
-                </div>
+
             <?php
+
             endif;
             ?>
         </div>
@@ -164,51 +167,14 @@ get_header();
 
                 </div>
             </div>
-            <?php } else {?><div class="custom-col col-right">
+            <?php } else {?>
+                <div class="custom-col col-right">
 
-                <div class="container">
-                    <div class="row">
-                        <div class="media comment-box">
-                            <div class="media-left">
-                                <a href="#">
-                                    <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading">John Doe</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <a href="#">
-                                            <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-                                        </a>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4 class="media-heading">Jane Doe</h4>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <a href="#">
-                                            <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-                                        </a>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4 class="media-heading">John Doe</h4>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
             <?php }?>
         </div>
 
     </div>
-    <!-- ✅ Kết thúc layout 3 cột -->
 
 </main>
 
