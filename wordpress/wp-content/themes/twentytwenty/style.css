@@ -823,6 +823,8 @@ path {
 /* comment tác giả  */
 .comments-box {
     background: #fff;
+    width: 30%;
+    margin: 0 auto;
     /*padding: 15px 20px;*/
     border-radius: 4px;
 }
@@ -2384,27 +2386,23 @@ section {
     width: 100%;
 }
 
-.section-inner {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 120rem;
-    width: calc(100% - 4rem);
-}
+/*.section-inner {*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*    width: calc(100% - 4rem);*/
+/*}*/
 
 .section-inner.max-percentage {
     width: 100%;
 }
 
-.section-inner.thin {
-    max-width: 58rem;
-}
 
 .section-inner.small {
     max-width: 80rem;
 }
 
 .section-inner.medium {
-    max-width: 100rem;
+    width: 100%;
 }
 
 .section-inner.no-margin {
@@ -3855,6 +3853,10 @@ body:not(.singular) main > article:first-of-type {
 /* Search Results ---------------------------- */
 
 .no-search-results-form {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100% !important;
+    background:#f5efe0;
     /*padding-top: 5rem;*/
 }
 
