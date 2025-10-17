@@ -145,10 +145,10 @@ else :
                             $news_page_id = get_option('page_for_posts');
                             $news_archive_url = $news_page_id ? get_permalink($news_page_id) : get_home_url();
                             ?>
-                            <a href="<?php echo esc_url($news_archive_url); ?>" class="view-all-news-button">
-                                XEM TẤT CẢ TIN TỨC
-                            </a>
                         </div>
+                        <a href="<?php echo esc_url($news_archive_url); ?>" class="view-all-news-button">
+                            XEM TẤT CẢ TIN TỨC
+                        </a>
                     <?php endif; ?>
                 </div>
                 <!-- END: Cột 3 Next Post -->

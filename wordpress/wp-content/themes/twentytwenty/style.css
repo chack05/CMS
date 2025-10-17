@@ -605,7 +605,7 @@ path {
 
 .strainline .wp-block-heading {
     position: relative;
-    padding-bottom: 90px;
+    padding-bottom: 80px;
     border-bottom: black 1px solid;
     margin-bottom: 50px;
 
@@ -1106,13 +1106,13 @@ path {
 }
 
 .post-sidebar-next {
+    margin-top: 30px;
     padding: 20px;
 }
 
 .latest-news-block {
     background-color: #4dc4b9; /* Màu xanh ngọc (Teal) */
     padding: 30px;
-    border-radius: 8px; /* Bo góc nhẹ */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     color: #fff; /* Chữ trắng */
 }
@@ -1199,14 +1199,14 @@ path {
     padding: 15px 10px;
     text-decoration: none;
     font-weight: bold;
-    border-radius: 4px;
-    margin-top: 20px;
     transition: background-color 0.3s;
 }
 
 .view-all-news-button:hover {
     background-color: #2e8b83;
 }
+/*----------------------------------------end----------------------------------------*/
+/*----------------------------------------Archive----------------------------------------*/
 /*----------------------------------------end----------------------------------------*/
 
 
