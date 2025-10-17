@@ -823,7 +823,7 @@ path {
 /* comment tác giả  */
 .comments-box {
     background: #fff;
-    padding: 15px 20px;
+    /*padding: 15px 20px;*/
     border-radius: 4px;
 }
 
@@ -1207,6 +1207,197 @@ path {
 }
 /*----------------------------------------end----------------------------------------*/
 /*----------------------------------------Archive----------------------------------------*/
+/* Bố cục 3 cột */
+.custom-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; /* trái - giữa - phải */
+    gap: 20px;
+    align-items: start;
+}
+.col-center {
+    margin-top: 50px;
+ }
+.col-left {
+    margin-top: 50px;
+
+}
+.custom-col.col-center > * {
+    /* Thiết lập chiều rộng cho các bài viết bên trong */
+    max-width: 100%; /* Dựa trên kích thước bạn thấy trong dev tools */
+    /*margin-top: 50px;*/
+    /* Căn giữa các phần tử block bên trong cột */
+    margin-left: 30px;
+    margin-right: auto;
+}
+.custom-col {
+    background: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.custom-post-wrap {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 15px;
+    transition: box-shadow 0.3s ease;
+}
+
+.custom-post-wrap:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.custom-post-thumbnail img {
+    width: 100%;
+    max-width: 200px; /* 👈 Giới hạn chiều rộng tối đa của ảnh */
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+}
+
+
+/*
+ * -----------------------------------------------------------------------------
+ * CSS for 'Xem Nhiều' (Popular Posts) Section
+ * Matches the provided image layout.
+ * -----------------------------------------------------------------------------
+ */
+
+/* Container for the Popular Posts section */
+.custom-col.col-left .popular-posts {
+    padding: 15px; /* Add some internal padding */
+    /* You might want a background color or border depending on the full design */
+    /* border: 1px solid #eee; */
+    /* background-color: #fff; */
+}
+
+/* Section Title 'Xem nhiều' */
+.custom-col.col-left .popular-posts .section-title {
+    font-size: 1.5rem; /* Larger font size for the title */
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc; /* Separator line */
+}
+
+/* The Grid Container for the posts */
+.popular-posts .posts-grid {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap onto the next line */
+    gap: 10px 20px; /* Space between rows and columns */
+    list-style: none; /* Ensure no list bullets */
+    padding: 0;
+    margin: 0;
+}
+
+/* Individual Post Item */
+.popular-posts .post-item {
+    display: flex; /* Flex to align rank and title */
+    align-items: flex-start; /* Align items to the top (rank and title text) */
+    flex-basis: calc(50% - 10px); /* Two columns: 50% width minus half the column gap */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    padding-right: 5px; /* Small padding on the right to prevent text hugging the edge */
+}
+.popular-posts .post-item {
+    /* Đã có: flex-basis: calc(50% - 10px); */
+    /* Thêm đường kẻ dưới mờ (ngang) */
+    padding-bottom: 10px; /* Tạo khoảng cách cho đường kẻ dưới */
+    margin-bottom: 10px; /* Thêm khoảng cách giữa các hàng */
+    border-bottom: 1px solid #f0f0f0; /* Đường kẻ ngang mờ */
+}
+
+/* Loại bỏ đường kẻ dưới cho hàng cuối cùng (mục 7 và 8 trong mẫu) */
+/* Cần biết tổng số mục là 8. Nếu tổng số mục thay đổi, cần dùng nth-last-child hoặc class đặc biệt */
+/* Giả sử luôn có 8 mục và chúng được chia thành 2 cột: */
+.popular-posts .post-item:nth-child(7), /* Mục 7 */
+.popular-posts .post-item:nth-child(8) { /* Mục 8 */
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+
+/* Áp dụng đường kẻ dọc (Vertical Separator) cho cột bên trái */
+.popular-posts .post-item:nth-child(odd) {
+    /* Áp dụng đường kẻ bên phải cho các mục lẻ (1, 3, 5, 7) */
+    border-right: 1px solid #f0f0f0; /* Đường kẻ dọc mờ */
+    padding-right: 30px; /* Tạo khoảng cách giữa nội dung và đường kẻ */
+    margin-right: -10px; /* Điều chỉnh lại khoảng cách để giữ bố cục 2 cột */
+}
+
+/* Loại bỏ đường kẻ dọc cho mục lẻ cuối cùng (Mục 7) */
+/* (Tùy chọn, vì mục 7 là cuối cùng bên trái, thường không cần đường kẻ dọc) */
+/* .popular-posts .post-item:nth-child(7) {
+    border-right: none;
+} */
+
+/* Post Rank Number */
+.popular-posts .post-item .post-rank {
+    font-size: 3.5rem; /* Large font size for the number */
+    font-weight: 800; /* Extra bold */
+    color: #333; /* Dark color for the number */
+    margin-right: 10px; /* Space between the number and the title */
+    line-height: 1; /* Ensure the number doesn't create excessive vertical space */
+    /* Adjusting line-height is key to aligning with the first line of the title */
+}
+
+/* Post Title */
+.popular-posts .post-item .post-title {
+    flex-grow: 1; /* Take up the remaining space */
+    font-size: 1.1rem; /* Clearer font size for the title */
+    font-weight: normal;
+}
+
+.popular-posts .post-item .post-title a {
+    text-decoration: none; /* Remove underline from link */
+    color: #000; /* Black text color */
+    line-height: 1.4; /* Better readability */
+    display: block; /* Make the whole title block clickable */
+    /* Styles for the comment count/icon if you add it to the title div */
+}
+
+/* Hover effect for titles */
+.popular-posts .post-item .post-title a:hover {
+    color: #c00; /* Change color on hover, e.g., red */
+}
+
+/* --- Responsive Adjustments (for smaller screens) --- */
+
+/* For screens smaller than 768px (common tablet/mobile breakpoint) */
+@media (max-width: 767px) {
+    .custom-col.col-left .popular-posts {
+        padding: 10px;
+    }
+
+    /* Switch to single column layout */
+    .popular-posts .post-item {
+        flex-basis: 100%; /* Each item takes up the full width */
+        margin-bottom: 15px; /* Add some space between vertical items */
+        padding-right: 0;
+    }
+
+    .popular-posts .post-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .popular-posts .post-item .post-rank {
+        font-size: 2rem; /* Slightly smaller number on mobile */
+    }
+
+    .popular-posts .post-item .post-title {
+        font-size: 1rem; /* Slightly smaller title on mobile */
+    }
+
+    /* If the 3-column layout collapses to a single column, you may need to adjust the left column's width here as well */
+}
+
+/* Optional: Additional small adjustments for very small phones */
+@media (max-width: 480px) {
+    .popular-posts .post-item .post-rank {
+        font-size: 1.8rem;
+    }
+}
 /*----------------------------------------end----------------------------------------*/
 
 
