@@ -822,6 +822,7 @@ path {
 /*----------------------------------------comment----------------------------------------*/
 /* comment tác giả  */
 .comments-box {
+    width: 50%;
     background: #fff;
     margin: 0 auto;
     padding: 15px 20px;
