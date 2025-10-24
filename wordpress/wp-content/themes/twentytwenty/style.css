@@ -823,10 +823,10 @@ path {
 /* comment tác giả  */
 .comments-box {
     background: #fff;
-    /*padding: 15px 20px;*/
+    margin: 0 auto;
+    padding: 15px 20px;
     border-radius: 4px;
 }
-
 .comments-box-title {
     font-size: 18px;
     font-weight: 600;
@@ -2384,27 +2384,23 @@ section {
     width: 100%;
 }
 
-.section-inner {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 120rem;
-    width: calc(100% - 4rem);
-}
+/*.section-inner {*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*    width: calc(100% - 4rem);*/
+/*}*/
 
 .section-inner.max-percentage {
     width: 100%;
 }
 
-.section-inner.thin {
-    max-width: 58rem;
-}
 
 .section-inner.small {
     max-width: 80rem;
 }
 
 .section-inner.medium {
-    max-width: 100rem;
+    width: 100%;
 }
 
 .section-inner.no-margin {
@@ -3855,6 +3851,10 @@ body:not(.singular) main > article:first-of-type {
 /* Search Results ---------------------------- */
 
 .no-search-results-form {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100% !important;
+    background:#f5efe0;
     /*padding-top: 5rem;*/
 }
 
@@ -4156,6 +4156,7 @@ h2.entry-title {
 .pagination-single {
     font-size: 1.8rem;
     margin-top: 5rem;
+    margin-left: 50px;
 }
 
 .pagination-single-inner {
@@ -5285,7 +5286,7 @@ div.comment:first-of-type {
 
 .comment-meta {
     line-height: 1.1;
-    margin-bottom: 1.5rem;
+    /*margin-bottom: 1.5rem;*/
     min-height: 5rem;
     padding-left: 5rem;
     position: relative;
@@ -6339,7 +6340,7 @@ a.to-the-top > * {
 
     h2,
     .heading-size-2 {
-        font-size: 4.8rem;
+        /*font-size: 4.8rem;*/
     }
 
     h3,
@@ -6960,11 +6961,11 @@ a.to-the-top > * {
     }
 
     .comment-author {
-        font-size: 2.4rem;
+        /*font-size: 2.4rem;*/
     }
 
     .comment-metadata {
-        font-size: 1.6rem;
+        /*font-size: 1.6rem;*/
         margin-top: 0.8rem;
     }
 

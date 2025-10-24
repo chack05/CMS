@@ -7,7 +7,6 @@ get_header();
 ?>
 
 <main id="site-content">
-
     <?php
     $archive_title    = '';
     $archive_subtitle = '';
@@ -168,11 +167,12 @@ get_header();
         </div>
 
         <!-- Cột phải -->
+
         <?php if(!is_search()){ ?>
+
         <div class="custom-col col-right">
             <div class="comments" id="comments">
                 <div class="comments-inner section-inner thin max-percentage">
-
                     <div class="comments-box">
                         <h2 class="comments-box-title">Comments</h2>
                         <div class="comments-box-line"></div>
@@ -200,11 +200,73 @@ get_header();
 
                 </div>
             </div>
-            <?php } else {?>
+            <?php } else { ?>
                 <div class="custom-col col-right">
+                    <div class="latest-comments-widget">
+                        <h3 class="section-title">Bình luận mới nhất</h3>
 
-            </div>
-            <?php }?>
+                        <?php
+                        // Lấy 5 bình luận mới nhất đã được duyệt
+                        $recent_comments = get_comments(array(
+                            'number' => 5,
+                            'status' => 'approve',
+                            'hierarchical' => 'threaded',
+                            'parent' => 0, // chỉ lấy bình luận cha để hiển thị phân cấp
+                        ));
+
+                        if ($recent_comments) :
+                            ?>
+                            <ul class="styled-comment-list">
+                                <?php
+                                foreach ($recent_comments as $comment) :
+                                    $avatar = get_avatar($comment, 55);
+                                    $author = get_comment_author($comment);
+                                    $content = wp_trim_words($comment->comment_content, 35, '...');
+                                    ?>
+                                    <li class="styled-comment-item">
+                                        <div class="comment-avatar-wrap">
+                                            <?php echo $avatar; ?>
+                                        </div>
+                                        <div class="comment-body-wrap">
+                                            <h4 class="comment-author-name"><?php echo esc_html($author); ?></h4>
+                                            <p class="comment-text-content"><?php echo esc_html($content); ?></p>
+
+                                            <?php
+                                            // Lấy các bình luận con (reply)
+                                            $child_comments = get_comments(array(
+                                                'parent' => $comment->comment_ID,
+                                                'status' => 'approve',
+                                            ));
+
+                                            if ($child_comments) :
+                                                echo '<ul class="children">';
+                                                foreach ($child_comments as $child) :
+                                                    $child_avatar = get_avatar($child, 45);
+                                                    $child_author = get_comment_author($child);
+                                                    $child_content = wp_trim_words($child->comment_content, 30, '...');
+                                                    ?>
+                                                    <li class="styled-comment-item">
+                                                        <div class="comment-avatar-wrap">
+                                                            <?php echo $child_avatar; ?>
+                                                        </div>
+                                                        <div class="comment-body-wrap">
+                                                            <h4 class="comment-author-name"><?php echo esc_html($child_author); ?></h4>
+                                                            <p class="comment-text-content"><?php echo esc_html($child_content); ?></p>
+                                                        </div>
+                                                    </li>
+                                                <?php
+                                                endforeach;
+                                                echo '</ul>';
+                                            endif;
+                                            ?>
+                                        </div>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            <?php } ?>
         </div>
 
     </div>

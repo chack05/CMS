@@ -38,6 +38,8 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Last__posts",
+    "last_opened_file_path": "E:/CMS",
     "git-widget-placeholder": "master",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -76,6 +78,11 @@
       <workItem from="1759902404765" duration="42000" />
       <workItem from="1760505470644" duration="15000" />
       <workItem from="1760679953575" duration="869000" />
+      <workItem from="1760680903379" duration="9172000" />
+      <workItem from="1760695007091" duration="503000" />
+      <workItem from="1760696030508" duration="31000" />
+      <workItem from="1760747616084" duration="5000" />
+      <workItem from="1761284749235" duration="4432000" />
       <workItem from="1760680903379" duration="9705000" />
     </task>
     <servers />

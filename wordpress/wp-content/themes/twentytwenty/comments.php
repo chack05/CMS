@@ -1,3 +1,41 @@
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const comments = document.querySelectorAll(".comment-body");
+        const respond = document.getElementById("respond"); // form comment
+        const cancelReply = document.getElementById("cancel-comment-reply-link");
+
+        comments.forEach(function (comment) {
+            comment.addEventListener("click", function () {
+                const commentId = this.closest("li").id.replace("comment-", "");
+                const parent = this.closest("li");
+
+                // Di chuyển form trả lời vào dưới comment được click
+                if (parent && respond) {
+                    parent.appendChild(respond);
+                    respond.scrollIntoView({ behavior: "smooth", block: "center" });
+
+                    // Cập nhật giá trị comment_parent ẩn
+                    const input = document.getElementById("comment_parent");
+                    if (input) input.value = commentId;
+                }
+            });
+        });
+
+        // Nếu bấm “Cancel reply”, form quay lại vị trí ban đầu
+        if (cancelReply) {
+            cancelReply.addEventListener("click", function (e) {
+                e.preventDefault();
+                const commentFormWrapper = document.querySelector(".comments-inner");
+                if (commentFormWrapper && respond) {
+                    commentFormWrapper.appendChild(respond);
+                    const input = document.getElementById("comment_parent");
+                    if (input) input.value = 0;
+                }
+            });
+        }
+    });
+</script>
+
 <?php
 
 /**
@@ -36,20 +74,15 @@ if ($comments) {
             <div class="comments-box">
                 <h2 class="comments-box-title">Comments</h2>
                 <div class="comments-box-line"></div>
-
                 <ul class="comments-list">
                     <?php
-                    // Lấy 5 comment mới nhất (có thể chỉnh số lượng)
-                    $recent_comments = get_comments(array(
-                        'number' => 5,
-                        'status' => 'approve',
+                    wp_list_comments(array(
+                        'style'      => 'ul',
+                        'short_ping' => true,
+                        'avatar_size'=> 30,
+                        'callback'   => null, // dùng layout mặc định
+                        'reply_text' => '',
                     ));
-
-                    foreach ($recent_comments as $comment) {
-                        echo '<li><a href="' . esc_url(get_comment_link($comment)) . '">'
-                            . esc_html($comment->comment_content)
-                            . '</a></li>';
-                    }
                     ?>
                 </ul>
             </div>
@@ -59,9 +92,9 @@ if ($comments) {
 
             $comment_pagination = paginate_comments_links(
                 array(
-                    'echo'      => false,
-                    'end_size'  => 0,
-                    'mid_size'  => 0,
+                    'echo' => false,
+                    'end_size' => 0,
+                    'mid_size' => 0,
                     'next_text' => __('Newer Comments', 'twentytwenty') . ' <span aria-hidden="true">&rarr;</span>',
                     'prev_text' => '<span aria-hidden="true">&larr;</span> ' . __('Older Comments', 'twentytwenty'),
                 )
@@ -102,15 +135,15 @@ if (comments_open() || pings_open()) {
         'class_form' => 'section-inner thin max-percentage',
         'title_reply' => 'Make a post',
         'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
-        'title_reply_after'  => '</h2>',
+        'title_reply_after' => '</h2>',
         'label_submit' => 'share',
         'comment_field' => '
         
 <textarea class="comment-text" id="comment" name="comment" rows="5" placeholder="What are you thinking..."></textarea>
         ',
-        'fields' => is_user_logged_in() ? array(): array(
+        'fields' => is_user_logged_in() ? array() : array(
             'author' => '<p><input id="author" name="author" type="text" placeholder="Tên của bạn"></p>',
-            'email'  => '<p><input id="email" name="email" type="email" placeholder="Email"></p>',
+            'email' => '<p><input id="email" name="email" type="email" placeholder="Email"></p>',
         )
     ));
 } elseif (is_single()) {
