@@ -819,10 +819,152 @@ path {
 
 /* end css phần trang  */
 /*----------------------------------------end----------------------------------------*/
+/* bài 14 comment  */
+/* ==========================================================================
+   CSS CHO WIDGET BÌNH LUẬN MỚI NHẤT — PHÂN CẤP GIỐNG HÌNH
+   ========================================================================== */
+/* bài 14 comment  */
+/* ==========================================================================
+   CSS CHO WIDGET BÌNH LUẬN MỚI NHẤT — PHÂN CẤP GIỐNG HÌNH
+   ========================================================================== */
+.post-inner .comments .comments-box .comments-list{
+    margin: 0 auto;
+    width: 50%;
+}
+.latest-comments-widget {
+    padding: 10px;
+}
+
+.latest-comments-widget .section-title {
+    font-size: 1.1em;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #333;
+}
+
+.styled-comment-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* =====================
+   COMMENT ITEM CHÍNH
+   ===================== */
+.styled-comment-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.comment-avatar-wrap {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.comment-avatar-wrap img {
+    width: 50px;
+    height: 50px;
+    border-radius: 3px;
+    background-color: #e5e5e5;
+    border: 1px solid #ccc;
+}
+
+.comment-body-wrap {
+    flex-grow: 1;
+    /* padding: 10px 12px; */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fafafa;
+    position: relative;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    border: #e9e9e9 solid 1px;
+}
+
+/* Mũi tên trái */
+.comment-body-wrap::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: -8px;
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-right: 8px solid #ccc;
+}
+.comment-body-wrap::after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: -7px;
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-right: 8px solid #cccccc;
+}
+
+/* Tên tác giả */
+.comment-author-name {
+    margin: 0 0 6px 0;
+    font-size: 1em;
+    font-weight: 600;
+    color: #444;
+    padding: 7px 10px;
+    background-color: #ccc;
+}
+
+/* Nội dung */
+.comment-text-content {
+    margin: 1px 10px;
+    font-size: 0.9em;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* =====================
+   PHÂN CẤP (CHILD COMMENT)
+   ===================== */
+.styled-comment-item ul.children {
+    list-style: none;
+    margin: 0 0 0 10px; /* Thụt vào phải 60px */
+    padding: 0;
+    /* border-left: 1px solid #ddd; Tạo vạch dọc phân cấp */
+}
+
+.styled-comment-item ul.children .styled-comment-item {
+    margin-top: 15px;
+}
+
+/* Avatar con nhỏ hơn chút */
+.styled-comment-item ul.children .comment-avatar-wrap {
+    width: 45px;
+    height: 45px;
+}
+
+.styled-comment-item ul.children .comment-avatar-wrap img {
+    width: 45px;
+    height: 45px;
+}
+
+/* Comment con nền sáng hơn */
+.styled-comment-item ul.children .comment-body-wrap {
+    background-color: #fff;
+    border-color: #ddd;
+}
+
+/* end bài 14 comment  */
+/* end bài 14 comment  */
 /*----------------------------------------comment----------------------------------------*/
 /* comment tác giả  */
 .comments-box {
-    width: 50%;
+    width: 100% !important;
     background: #fff;
     margin: 0 auto;
     padding: 15px 20px;
