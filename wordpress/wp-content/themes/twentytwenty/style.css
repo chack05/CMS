@@ -823,12 +823,10 @@ path {
 /* comment tác giả  */
 .comments-box {
     background: #fff;
-    width: 30%;
     margin: 0 auto;
-    /*padding: 15px 20px;*/
+    padding: 15px 20px;
     border-radius: 4px;
 }
-
 .comments-box-title {
     font-size: 18px;
     font-weight: 600;
@@ -4158,6 +4156,7 @@ h2.entry-title {
 .pagination-single {
     font-size: 1.8rem;
     margin-top: 5rem;
+    margin-left: 50px;
 }
 
 .pagination-single-inner {
@@ -5287,7 +5286,7 @@ div.comment:first-of-type {
 
 .comment-meta {
     line-height: 1.1;
-    margin-bottom: 1.5rem;
+    /*margin-bottom: 1.5rem;*/
     min-height: 5rem;
     padding-left: 5rem;
     position: relative;
@@ -6341,7 +6340,7 @@ a.to-the-top > * {
 
     h2,
     .heading-size-2 {
-        font-size: 4.8rem;
+        /*font-size: 4.8rem;*/
     }
 
     h3,
@@ -6962,11 +6961,11 @@ a.to-the-top > * {
     }
 
     .comment-author {
-        font-size: 2.4rem;
+        /*font-size: 2.4rem;*/
     }
 
     .comment-metadata {
-        font-size: 1.6rem;
+        /*font-size: 1.6rem;*/
         margin-top: 0.8rem;
     }
 
