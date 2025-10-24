@@ -334,6 +334,7 @@ path {
 .custom-post-content {
     /* Đảm bảo nội dung chiếm hết không gian còn lại */
     flex-grow: 1;
+    padding-right: 10px;
 }
 
 .custom-post-content .entry-title {
