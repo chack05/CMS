@@ -151,9 +151,9 @@ body {
     word-wrap: break-word;
 }
 
-/*#site-content {*/
-/*	overflow: hidden;*/
-/*}*/
+#site-content .footer-nav-widgets-wrapper .footer-inner{
+    margin-left: auto !important;
+}
 
 
 /* Clearing ---------------------------------- */
@@ -190,16 +190,19 @@ path {
 }
 
 /*----------------------------------------chinh sua footer----------------------------------------*/
+.header-footer-group .section-inner .footer-credits{
+    margin-left: 170px !important;
+}
 .footer-widgets nav a {
     font-weight: normal;
 }
 
 .footer-widgets nav a::before {
     content: "» ";
-
-
 }
-
+.footer-widgets-outer-wrapper{
+    margin-left: 100px !important;
+}
 .footer-widgets nav ul li {
     transition: transform 0.3s linear;
 }
@@ -7215,11 +7218,13 @@ a.to-the-top > * {
     .footer-widgets-outer-wrapper {
         padding: 8rem 0;
     }
-
+    .footer-widgets-outer-wrapper .footer-widgets-wrapper{
+        margin-left: 50px !important;
+    }
     .footer-widgets-wrapper {
         display: flex;
         justify-content: space-between;
-        margin-left: -4rem;
+        margin-left: -1rem;
         width: calc(100% + 4rem);
     }
 
@@ -7884,7 +7889,7 @@ a.to-the-top > * {
 
     /* FOOTER WIDGETS */
     .footer-widgets-wrapper {
-        margin-left: -6rem;
+        /*margin-left: -6rem;*/
         width: calc(100% + 6rem);
     }
 
